@@ -50,9 +50,12 @@ A stateful structure lives through create → update → destroy. Enumerate ever
 
 Add visualization or instrumentation so the effect is observable on real data — this is what confirms correctness AND lets you tune parameters afterward. Overlay the structure (grid/boxes/regions) and live stats (counts, rejections, dups). **Scope it to the CURRENT frame/state, not all-history** — drawing every entry ever created makes the count grow forever and hides the real behavior. "It builds" and "tests pass" are not validation; you haven't validated until you've SEEN the method act on real input.
 
-## Red flags — STOP
+## Failure Modes
 
-- "The paper obviously means X" / "this is basically an index for speed" → you haven't confirmed the mechanism. Pin it in one sentence first, and re-read the method section.
-- "I think that's everything" → diff against the plan checklist, item by item.
-- "It compiles, so it works" → add visualization on real data.
-- "It solved / the run finished" → verify the FULL output is correct (bugs hide between sampled points), and that runtime isn't exploding because you dropped the paper's optimizations — intractability is a bug to fix, not just slow.
+When you catch yourself thinking any of these, STOP and follow the Fix.
+
+| Symptom | Root Cause | Fix | Phase |
+|---------|-----------|-----|:-----:|
+| "The paper obviously means X" | Skipped mechanism pinning — assumed meaning | Write ONE sentence confirming the mechanism; re-read the **method** section | P1 |
+| "this is basically an index for speed" | Confused behavior change with acceleration | Answer: same result faster, or a different result? If different → it's not "just an index" | P1 |
+| "I think that's everything" | No checklist — forgot items
