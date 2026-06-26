@@ -58,4 +58,10 @@ When you catch yourself thinking any of these, STOP and follow the Fix.
 |---------|-----------|-----|:-----:|
 | "The paper obviously means X" | Skipped mechanism pinning — assumed meaning | Write ONE sentence confirming the mechanism; re-read the **method** section | P1 |
 | "this is basically an index for speed" | Confused behavior change with acceleration | Answer: same result faster, or a different result? If different → it's not "just an index" | P1 |
-| "I think that's everything" | No checklist — forgot items
+| "I think that's everything" | No checklist — forgot items | Diff plan checklist against actual changes, item by item | P2, P3 |
+| "It compiles, so it works" | Compiled = validation fallacy | Add visualization on real data; verify observable behavior | P5 |
+| "It solved / the run finished" | Sampled validation — bugs hide between checkpoints | Verify FULL output; check runtime didn't explode from dropped optimizations | P5 |
+| "Just add one more field / one more flag" | Scope creep — adding non-paper features | Write it in trade-offs table with rationale; defer to next iteration | P2 |
+| "The code is too slow, must be the paper's fault" | Blamed paper before verifying implementation | Add instrumentation to find actual bottleneck; compare against paper's reported runtime | P5 |
+| "I'll just implement from the abstract" | Assumed abstract = spec | Read the **method** section end-to-end before any design | P1 |
+| "The implementation is done, tests pass" | Equated test coverage with behavior correctness | Add integration test on real data that exercises the full pipeline end-to-end | P3, P5 |
